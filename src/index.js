@@ -8,6 +8,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import logger from 'redux-logger';
 
 
+
 //Going into my reducer function we have the previous state, and an action
 const feedbackReducer = (state=[], action) => {
     if (action.type === 'ADD_FEEDBACK'){

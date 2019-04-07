@@ -3,6 +3,8 @@ import Axios from 'axios';
 import './App.css';
 import ReviewComponent from '../ReviewComponent/ReviewComponent';
 import Feeling from '../Feeling/Feeling';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
 
 class App extends Component {
 
@@ -44,6 +46,7 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
@@ -51,13 +54,13 @@ class App extends Component {
         </header>
         <br/>
         <div>
-          <Feeling />
-          The forms will generate here
+        <Route exact path="/" component={Home} />
         </div> 
         <div>
           <ReviewComponent />
         </div>
       </div>
+      </Router>
     );
   }
 }

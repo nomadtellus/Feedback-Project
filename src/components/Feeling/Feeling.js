@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import UnderstandingButton from "../UnderstandingButton/UnderstandingButton";
 
 class Feeling extends Component {
     state = {
         newFeedback: {
-            feeling: ''
+            feelings: '0'
     }
 }
 
@@ -34,12 +35,12 @@ class Feeling extends Component {
                 <label>Feeling?</label>
                 <br />
                 <input type="number"
-                        name="feeling"
+                        name="feelings"
                         onChange={this.handleChangeFor}
                         // value={this.newFeedback.feeling}
                 />                
                 <br />
-                <button type="submit">Next</button>
+                <UnderstandingButton />
             </form>
         </div>
       </section>
