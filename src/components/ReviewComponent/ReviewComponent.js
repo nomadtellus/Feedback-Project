@@ -2,15 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class ReviewComponent extends Component {
-    
-    state = {
-        newFeedback: {
-          feelings: '0',
-          understanding: '0',
-          support: '0',
-          comments: '',
-        }
-      }
 
   render() {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AnimalButton from '../FeelingsButton/FeelingsButton';
+import FeelingButton from '../FeelingButton/FeelingButton';
 
 class Home extends Component {
 
@@ -7,7 +7,7 @@ class Home extends Component {
     return (
       <div>
         <h1>Let's Get Started!</h1>
-        <FeelingsButton />
+        <FeelingButton />
       </div>
     )
   }

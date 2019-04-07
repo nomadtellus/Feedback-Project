@@ -4,6 +4,10 @@ import './App.css';
 import ReviewComponent from '../ReviewComponent/ReviewComponent';
 import Feeling from '../Feeling/Feeling';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import Home from '../Home/Home';
+import Support from '../Support/Support';
+import Understanding from '../Understanding/Understanding';
+import Comments from '../Comments/Comments'
 
 
 class App extends Component {
@@ -55,6 +59,12 @@ class App extends Component {
         <br/>
         <div>
         <Route exact path="/" component={Home} />
+        <Route exact path="/feelings" component={Feeling} />
+        <Route exact path="/understanding" component={Understanding} />
+        <Route exact path="/support" component={Support} />
+        <Route exact path="/comments" component={Comments} />
+
+
         </div> 
         <div>
           <ReviewComponent />
