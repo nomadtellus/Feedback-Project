@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import SupportButton from "../SupportButton/SupportButton";
 
 class Understanding extends Component {
     state = {
@@ -24,6 +23,8 @@ class Understanding extends Component {
     handleSubmit = event => {
         event.preventDefault();
         this.props.addFeedback(this.state.newFeedback);
+        this.props.history.push('/support');
+
         };
 
   render() {
@@ -40,7 +41,7 @@ class Understanding extends Component {
                         // value={this.newFeedback.feeling}
                 />                
                 <br />
-                <SupportButton />
+                <button type="submit">Next!</button>
             </form>
         </div>
       </section>

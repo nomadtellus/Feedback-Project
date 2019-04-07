@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 
 class ReviewComponent extends Component {
 
+
   render() {
     return (
       <section>
         <h2>Review Your Feedback</h2>
+        <div>
           {this.props.reduxState.feedbackReducer.map((feedback, index) => (
             <div key={index}>
               <p>Feelings: {feedback.feelings}</p>
@@ -15,6 +17,7 @@ class ReviewComponent extends Component {
               <p>Comments: {feedback.comments}</p>
             </div>
           ))}
+          </div>
       </section>
     );
   }

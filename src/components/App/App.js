@@ -3,7 +3,7 @@ import Axios from 'axios';
 import './App.css';
 import ReviewComponent from '../ReviewComponent/ReviewComponent';
 import Feeling from '../Feeling/Feeling';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import Home from '../Home/Home';
 import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
@@ -13,6 +13,8 @@ import Comments from '../Comments/Comments'
 class App extends Component {
 
   addFeedback = newFeedback => {
+    console.log(newFeedback);
+    
     Axios({
       method: "POST",
       url: "/feedback",
@@ -28,9 +30,6 @@ class App extends Component {
       });
   };
 
-  componentDidMount(){
-    this.getFeedback();
-  }
 
   getFeedback = event => {
     Axios({
@@ -58,16 +57,14 @@ class App extends Component {
         </header>
         <br/>
         <div>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/feelings" component={Feeling} />
-        <Route exact path="/understanding" component={Understanding} />
-        <Route exact path="/support" component={Support} />
-        <Route exact path="/comments" component={Comments} />
-
-
+        <Route exact path="/" component={Home} addFeedback={this.addFeedback}/>
+        <Route exact path="/feelings" component={Feeling} addFeedback={this.addFeedback}/>
+        <Route exact path="/understanding" component={Understanding} addFeedback={this.addFeedback}/>
+        <Route exact path="/support" component={Support} addFeedback={this.addFeedback}/>
+        <Route exact path="/comments" component={Comments} addFeedback={this.addFeedback}/>
         </div> 
         <div>
-          <ReviewComponent />
+          <ReviewComponent getFeedback={this.getFeedback}/>
         </div>
       </div>
       </Router>

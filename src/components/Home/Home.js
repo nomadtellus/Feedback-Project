@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import FeelingButton from '../FeelingButton/FeelingButton';
 
 class Home extends Component {
+
+  handleSubmit = () => {
+    this.props.history.push('/feelings');
+  }
 
   render() {
     return (
       <div>
         <h1>Let's Get Started!</h1>
-        <FeelingButton />
+        <button type="submit">Next!</button>
       </div>
     )
   }

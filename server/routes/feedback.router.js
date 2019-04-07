@@ -7,7 +7,7 @@ const feedback = [];
 
 router.post('/', (req, res) => {
     let newFeedback = req.body;
-    feedback.push(newCharacter);
+    feedback.push(newFeedback);
     console.log('feedback are', feedback)
     res.sendStatus(201);
 })
