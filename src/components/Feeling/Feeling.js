@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Axios from 'axios';
+
 
 class Feeling extends Component {
     state = {
@@ -22,7 +24,8 @@ class Feeling extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.addFeedback(this.state.newFeedback);
+        const action = { type: "ADD_FEELINGS", payload: this.state.newFeedback.feelings };
+        this.props.dispatch(action);
         this.props.history.push('/understanding');
 
         };
@@ -38,10 +41,10 @@ class Feeling extends Component {
                 <input type="number"
                         name="feelings"
                         onChange={this.handleChangeFor}
-                        // value={this.newFeedback.feeling}
+                        value={this.state.newFeedback.feeling}
                 />                
                 <br />
-                <button type="submit">Next!</button>
+                <button onClick={this.handleSubmit}>Next!</button>
             </form>
         </div>
       </section>

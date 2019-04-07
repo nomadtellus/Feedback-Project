@@ -22,8 +22,9 @@ class Comments extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.addFeedback(this.state.newFeedback);
-        this.props.history.push('/');
+        const action = { type: "ADD_COMMENTS", payload: this.state.newFeedback.comments };
+        this.props.dispatch(action);
+        this.props.history.push('/success');
 
         };
 
@@ -38,10 +39,10 @@ class Comments extends Component {
                 <input type="text"
                         name="comments"
                         onChange={this.handleChangeFor}
-                        // value={this.newFeedback.feeling}
+                        value={this.state.newFeedback.comments}
                 />                
                 <br />
-                <button type="submit">Next!</button>
+                <button onClick={this.handleSubmit}>Next!</button>
             </form>
         </div>
       </section>

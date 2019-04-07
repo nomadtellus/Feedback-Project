@@ -22,7 +22,8 @@ class Understanding extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.addFeedback(this.state.newFeedback);
+        const action = { type: "ADD_UNDERSTANDING", payload: this.state.newFeedback.understanding };
+        this.props.dispatch(action);
         this.props.history.push('/support');
 
         };
@@ -38,10 +39,10 @@ class Understanding extends Component {
                 <input type="number"
                         name="understanding"
                         onChange={this.handleChangeFor}
-                        // value={this.newFeedback.feeling}
+                        value={this.state.newFeedback.understanding}
                 />                
                 <br />
-                <button type="submit">Next!</button>
+                <button onClick={this.handleSubmit}>Next!</button>
             </form>
         </div>
       </section>

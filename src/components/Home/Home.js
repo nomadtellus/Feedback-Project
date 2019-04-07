@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 class Home extends Component {
 
   handleSubmit = () => {
+    console.log('click');
+    
     this.props.history.push('/feelings');
   }
 
@@ -10,7 +12,7 @@ class Home extends Component {
     return (
       <div>
         <h1>Let's Get Started!</h1>
-        <button type="submit">Next!</button>
+        <button onClick={this.handleSubmit}>Next!</button>
       </div>
     )
   }

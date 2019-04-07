@@ -9,12 +9,12 @@ router.post('/', (req, res) => {
     let newFeedback = req.body;
     feedback.push(newFeedback);
     console.log('feedback are', feedback)
-    res.sendStatus(201);
+    res.send(feedback);
 })
 
-router.get('/', (req, res) => {
-    res.send(feedback)
-    console.log('getting feedback');   
-})
+// router.get('/', (req, res) => {
+//     res.send(feedback)
+//     console.log('getting feedback');   
+// })
 
 module.exports = router;
