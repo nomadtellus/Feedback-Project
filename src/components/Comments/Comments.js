@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Axios from 'axios';
 
 class Comments extends Component {
     state = {
@@ -21,12 +22,36 @@ class Comments extends Component {
       };
 
     handleSubmit = event => {
+
+      let newFeedback = this.props.reduxState
+      let savedFeedback = {
+        
+        feelings: `${newFeedback.feelingsReducer}`,
+        understanding: `${newFeedback.understandingReducer}`,
+        support: `${newFeedback.supportReducer}`,
+        comments: `${newFeedback.commentsReducer}`
+      }
         event.preventDefault();
         const action = { type: "ADD_COMMENTS", payload: this.state.newFeedback.comments };
         this.props.dispatch(action);
         this.props.history.push('/success');
 
+          // ajax call to server to get koalas
+          Axios({
+            method: 'POST',
+            url: '/feedback',
+            data: savedFeedback,
+          })
+          .catch(function (error){
+            console.log('unable to save new feedbac');
+            alert(`Unable to save new feedback`);
+          })
+         
         };
+
+
+
+
 
   render() {
     return (

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Axios from 'axios';
 
 
 class Feeling extends Component {

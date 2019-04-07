@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
 import './App.css';
 import ReviewComponent from '../ReviewComponent/ReviewComponent';
 import Feeling from '../Feeling/Feeling';
