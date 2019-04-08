@@ -37,5 +37,5 @@ if (process.env.DATABASE_URL) {
         idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
     };
 }
-
-module.exports = new pg.Pool(config);
+const pool = new pg.Pool(config);
+module.exports = pool;

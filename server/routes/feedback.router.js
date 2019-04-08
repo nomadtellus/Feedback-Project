@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
-const feedback = [];
-
-
+const pool = require( '../modules/pool');
 
 router.post('/', (req, res) => {
-    let feedback = req.body();
+    let feedback = req.body;
     console.log(`adding feedback`, feedback);
     let sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "Comments")
     VALUES ($1, $2, $3, $4);`;

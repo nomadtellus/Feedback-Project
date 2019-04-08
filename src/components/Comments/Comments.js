@@ -23,17 +23,23 @@ class Comments extends Component {
 
     handleSubmit = event => {
 
-      let newFeedback = this.props.reduxState
-      let savedFeedback = {
+      
+      
+      // let savedFeedback = {
         
-        feelings: `${newFeedback.feelingsReducer}`,
-        understanding: `${newFeedback.understandingReducer}`,
-        support: `${newFeedback.supportReducer}`,
-        comments: `${newFeedback.commentsReducer}`
-      }
+      //   feelings: `${newFeedback.feelingsReducer}`,
+      //   understanding: `${newFeedback.understandingReducer}`,
+      //   support: `${newFeedback.supportReducer}`,
+      //   comments: `${newFeedback.commentsReducer}`
+      // }
         event.preventDefault();
         const action = { type: "ADD_COMMENTS", payload: this.state.newFeedback.comments };
         this.props.dispatch(action);
+        let newFeedback = this.props.reduxState
+        let savedFeedback = [];
+        for (let feedback of newFeedback){
+          savedFeedback.push(feedback);
+        }
         this.props.history.push('/success');
 
           // ajax call to server to get koalas
